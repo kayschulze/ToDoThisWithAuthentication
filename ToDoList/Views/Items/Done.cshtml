@@ -1,0 +1,28 @@
+﻿@{ 
+    ViewData["Title"] = "To Do List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ToDoList.Models.Item
+
+<h2>To Do List</h2>
+<hr />
+<h4>@Html.DisplayNameFor(model => model.Description)</h4>
+
+<h4>Mark this item as complete?</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.ItemId)
+    @Html.HiddenFor(model => model.Description)
+    @Html.HiddenFor(model => model.CategoryId)
+
+    @Html.LabelFor(model => model.Done)
+    @Html.EditorFor(model => model.Done)
+
+    <input type="submit" value="Save" />
+}
+
+       
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
