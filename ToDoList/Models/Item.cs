@@ -3,14 +3,32 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ToDoList.Models
 {
-	[Table("ITEMS")]
-	public class Item
-	{
-		[Key]
-		public int ItemId { get; set; }
-		public string Description { get; set; }
+    [Table("ITEMS")]
+    public class Item
+    {
+        [Key]
+        public int ItemId { get; set; }
+        public string Description { get; set; }
         public bool Done { get; set; } = false;
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
-	}
+
+        public override bool Equals(System.Object otherItem)
+        {
+            if (!(otherItem is Item))
+            {
+                return false;
+            }
+            else
+            {
+                Item newItem = (Item)otherItem;
+                return this.ItemId.Equals(newItem.ItemId);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ItemId.GetHashCode();
+        }
+    }
 }
