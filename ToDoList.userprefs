@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{D2C95806-75B8-4487-B9AA-30A56C06F099}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoList/Controllers/ItemsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDoList.Tests/Models/TestDbContext.cs">
     <Files>
       <File FileName="ToDoList/Models/ToDoListContext.cs" Line="14" Column="2" />
-      <File FileName="ToDoList/Controllers/ItemsController.cs" Line="86" Column="27" />
+      <File FileName="ToDoList/Controllers/ItemsController.cs" Line="35" Column="10" />
       <File FileName="ToDoList/Models/Item.cs" Line="15" Column="9" />
       <File FileName="ToDoList/Models/Category.cs" Line="8" Column="14" />
       <File FileName="ToDoList/Views/Items/Index.cshtml" Line="8" Column="20" />
@@ -11,10 +11,11 @@
       <File FileName="ToDoList/Views/Items/Done.cshtml" Line="18" Column="46" />
       <File FileName="ToDoList.Tests/ItemTest.cs" Line="6" Column="7" />
       <File FileName="ToDoList.Tests/ModelTests/ItemTest.cs" Line="20" Column="4" />
-      <File FileName="ToDoList.Tests/ControllerTests/ItemsControllerTest.cs" Line="39" Column="37" />
-      <File FileName="ToDoList/Models/Repositories/IItemRepository.cs" Line="14" Column="32" />
-      <File FileName="ToDoList/Models/Repositories/EFRepository.cs" Line="33" Column="30" />
+      <File FileName="ToDoList.Tests/ControllerTests/ItemsControllerTest.cs" Line="73" Column="9" />
+      <File FileName="ToDoList/Models/Repositories/IItemRepository.cs" Line="11" Column="49" />
+      <File FileName="ToDoList/Models/Repositories/EFRepository.cs" Line="17" Column="42" />
       <File FileName="ToDoList/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="ToDoList.Tests/Models/TestDbContext.cs" Line="14" Column="2" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">

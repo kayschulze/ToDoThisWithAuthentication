@@ -18,6 +18,7 @@
   <ItemGroup>
     <Folder Include="ModelTests\" />
     <Folder Include="ControllerTests\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ItemTest.cs" />
