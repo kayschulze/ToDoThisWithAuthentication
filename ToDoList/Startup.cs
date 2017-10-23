@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using ToDoList.Models;
+using BasicAuthentication.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace ToDoList
+namespace BasicAuthentication
 {
     public class Startup
     {
@@ -28,36 +26,34 @@ namespace ToDoList
         {
             services.AddMvc();
             services.AddEntityFrameworkMySql()
-                    .AddDbContext<ToDoListContext>(options =>
+                    .AddDbContext<ApplicationDbContext>(options =>
                                                    options
-
                                                    .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            
-
-            loggerFactory.AddConsole();
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-			app.UseMvc(routes =>
+			if (env.IsDevelopment())
 			{
-				routes.MapRoute(
-				name: "default",
-					template: "{controller=Home}/{action=Index}/{id?}");
-			});
+				app.UseDeveloperExceptionPage();
+			}
 
-            app.UseStaticFiles();
+			app.UseIdentity();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Account}/{action=Index}/{id?}");
+            });
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Hello Folks!");
             });
         }
     }
